@@ -9,52 +9,20 @@
     <version>7</version>
   </parent>
 
-  <groupId>net.exkazuu</groupId>
-  <artifactId>DiffBasedWebTester</artifactId>
+  <groupId>jp.ac.nii</groupId>
+  <artifactId>xmldiff</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>DiffBasedWebTester</name>
-  <description>DiffBasedWebTester.</description>
-  <url>https://github.com/exKAZUu/DiffBasedWebTester</url>
+  <name>xmldiff</name>
+  <description>xmldiff.</description>
+  <url>https://github.com/tokichie/xmldiff</url>
   <inceptionYear>2014</inceptionYear>
-
-  <issueManagement>
-    <system>github.com</system>
-    <url>https://github.com/exKAZUu/DiffBasedWebTester/issues</url>
-  </issueManagement>
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-  <scm>
-    <connection>scm:git:https://github.com/exKAZUu/DiffBasedWebTester.git</connection>
-    <developerConnection>scm:git:https://github.com/exKAZUu/DiffBasedWebTester.git
-    </developerConnection>
-    <url>https://github.com/exKAZUu/DiffBasedWebTester</url>
-  </scm>
-  <developers>
-    <developer>
-      <id>exKAZUu</id>
-      <name>SAKAMOTO Kazunori</name>
-      <email>exkazuu@gmail.com</email>
-      <organization>National Institute of Informatics</organization>
-      <organizationUrl>http://www.exkazuu.net</organizationUrl>
-      <roles>
-        <role>owner</role>
-        <role>developer</role>
-      </roles>
-      <timezone>+9</timezone>
-    </developer>
-  </developers>
 
   <!-- General settings -->
   <properties>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
