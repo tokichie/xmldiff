@@ -1,4 +1,4 @@
-package com.github.exkazuu.diff_based_web_tester.diff_generator.xdiff;
+package com.github.tokichie.xml_diff_parser.xdiff;
 
 /**
  * Copyright (c) 2001 - 2005 Yuan Wang. All rights reserved.
@@ -27,11 +27,7 @@ package com.github.exkazuu.diff_based_web_tester.diff_generator.xdiff;
  * 
  */
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.Writer;
+import java.io.*;
 import java.util.Random;
 import java.util.Vector;
 

@@ -1,27 +1,22 @@
-package com.github.exkazuu.diff_based_web_tester.diff_generator.xdiff;
+package com.github.tokichie.xml_diff_parser.xdiff;
+
+import com.github.tokichie.xml_diff_parser.HtmlDiffGenerator;
+import com.github.exkazuu.diff_based_web_tester.diff_generator.HtmlFormatter;
+import com.github.exkazuu.diff_based_web_tester.diff_generator.LogFiles;
+import com.github.tokichie.xml_diff_parser.XmlDiff;import org.cyberneko.html.parsers.DOMParser;
+import org.w3c.dom.*;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.util.Stack;
-
-import org.cyberneko.html.parsers.DOMParser;
-import org.jsoup.helper.StringUtil;import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.ProcessingInstruction;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.github.exkazuu.diff_based_web_tester.diff_generator.LogFiles;
-import com.github.exkazuu.diff_based_web_tester.diff_generator.HtmlDiffGenerator;
-import com.github.exkazuu.diff_based_web_tester.diff_generator.HtmlFormatter;
+import java.util.ArrayList;import java.util.List;import java.util.Stack;
 
 public class XDiffGenerator extends HtmlDiffGenerator {
 
   @Override
-  public String generateDiffContent(String input1, String input2, String lineSeparator) {
+  public List<XmlDiff> generateDiffContent(String input1, String input2, String lineSeparator) {
     String diff = applyXdiff(input1, input2, lineSeparator);
     DOMParser parser = new DOMParser();
     try {
@@ -49,7 +44,7 @@ public class XDiffGenerator extends HtmlDiffGenerator {
 
   private class InstructionNodeExtractor {
     private Stack<Node> stack = new Stack<>();
-    private StringBuilder builder = new StringBuilder();
+    private List<XmlDiff> xmlDiffList = new ArrayList<XmlDiff>();
 
     private void search(Node node) {
       stack.push(node);
@@ -57,9 +52,9 @@ public class XDiffGenerator extends HtmlDiffGenerator {
         node = stack.pop();
         if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE) {
           ProcessingInstruction instruction = (ProcessingInstruction) node;
-          String line = instructionToString(instruction);
-          if (line != null) {
-            builder.append(line).append(System.lineSeparator());
+          XmlDiff xmlDiff = instructionToString(instruction);
+          if (xmlDiff != null) {
+            xmlDiffList.add(xmlDiff);
           }
         }
 
@@ -70,29 +65,32 @@ public class XDiffGenerator extends HtmlDiffGenerator {
       }
     }
 
-    private String instructionToString(ProcessingInstruction instruction) {
+    private XmlDiff instructionToString(ProcessingInstruction instruction) {
       Element parent = parentElement(instruction);
       String type = instruction.getTarget().toUpperCase();
       parent.removeChild(instruction);
       String operationTarget = instruction.getData().split("\\s")[0];
+
       switch (type) {
         case "INSERT":
         case "DELETE":
           if (operationTarget.equalsIgnoreCase(parent.getTagName())) {
-            return type + ":" + elementToString(parent).replace(System.lineSeparator(), "");
+            return new XmlDiff(type, null,
+                elementToString(parent).replace(System.lineSeparator(), ""));
           } else {
-            System.out.println(operationTarget.toString());
-            return type + " " + operationTarget + ":" + parent.getAttribute(operationTarget);
+            return new XmlDiff(type, operationTarget,
+                parent.getAttribute(operationTarget).replace(System.lineSeparator(), ""));
           }
         case "UPDATE":
           String fromData = instruction.getData().split("\\s", 2)[1];
           if (operationTarget.equals("FROM")) {
-            return type + ":[oldValue=" + fromData + ", newValue="
-                + elementToString(parent).replace(System.lineSeparator(), "") + "]";
+            String content = "{\"oldValue\":\"" + fromData.replace("\"", "\\\"") + "\", \"newValue\":\""
+                + elementToString(parent).replace("\"", "\\\"") + "\"}";
+            return new XmlDiff(type, null, content.replace(System.lineSeparator(), ""));
           } else {
-            System.out.println(operationTarget.toString());
-            return type + " " + operationTarget + ":[oldValue=" + fromData + ", newValue="
-                + parent.getAttribute(operationTarget) + "]";
+            String content = "{\"oldValue\":\"" + fromData.replace("\"", "\\\"") + "\", \"newValue\":\""
+                + parent.getAttribute(operationTarget).replace("\"", "\\\"") + "\"}";
+            return new XmlDiff(type, operationTarget, content.replace(System.lineSeparator(), ""));
           }
         default:
           return null;
@@ -125,8 +123,8 @@ public class XDiffGenerator extends HtmlDiffGenerator {
       return (Element) node;
     }
 
-    public String result() {
-      return builder.toString();
+    public List<XmlDiff> result() {
+      return xmlDiffList;
     }
   }
 }

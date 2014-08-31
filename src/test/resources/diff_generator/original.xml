@@ -1,0 +1,33 @@
+<compilation_unit id="">
+  <namespace_body id="4">
+    <namespace_member_declarations id="30">
+      <namespace_member_declaration id="47">
+        <type_declaration id="49">
+          <class_declaration id="50">
+            <TOKENS id="string_literal616">
+              <TOKEN id="string_literal616" startline="1" startpos="0" endline="1" endpos="5">class</TOKEN>
+            </TOKENS>
+            <identifier id="617">
+              <IDENTIFIER id="set1277">
+                <WS id="" startline="1" startpos="5" endline="1" endpos="6" hidden="true"> </WS>
+                <TOKEN id="set1277" startline="1" startpos="6" endline="1" endpos="9">kss</TOKEN>
+              </IDENTIFIER>
+            </identifier>
+            <class_body id="621">
+              <TOKENS id="char_literal667">
+                <WS id="" startline="1" startpos="9" endline="1" endpos="10" hidden="true"> </WS>
+                <TOKEN id="char_literal667" startline="1" startpos="10" endline="1" endpos="11">{</TOKEN>
+              </TOKENS>
+              <TOKENS id="char_literal669">
+                <TOKEN id="char_literal669" startline="1" startpos="11" endline="1" endpos="12">}</TOKEN>
+              </TOKENS>
+            </class_body>
+          </class_declaration>
+        </type_declaration>
+      </namespace_member_declaration>
+    </namespace_member_declarations>
+  </namespace_body>
+  <EOF id="EOF">
+    <TOKEN id="EOF" startline="1" startpos="12" endline="1" endpos="12"></TOKEN>
+  </EOF>
+</compilation_unit>

@@ -1,0 +1,114 @@
+<compilation_unit id="">
+  <namespace_body id="4">
+    <namespace_member_declarations id="30">
+      <namespace_member_declaration id="47">
+        <type_declaration id="49">
+          <class_declaration id="50">
+            <TOKENS id="string_literal616">
+              <TOKEN id="string_literal616" startline="1" startpos="0" endline="1" endpos="5">class</TOKEN>
+            </TOKENS>
+            <identifier id="617">
+              <IDENTIFIER id="set1277">
+                <WS id="" startline="1" startpos="5" endline="1" endpos="6" hidden="true"> </WS>
+                <TOKEN id="set1277" startline="1" startpos="6" endline="1" endpos="9">kss</TOKEN>
+              </IDENTIFIER>
+            </identifier>
+            <class_body id="621">
+              <TOKENS id="char_literal667">
+                <WS id="" startline="1" startpos="9" endline="1" endpos="10" hidden="true"> </WS>
+                <TOKEN id="char_literal667" startline="1" startpos="10" endline="1" endpos="11">{</TOKEN>
+              </TOKENS>
+              <class_member_declarations id="668">
+                <class_member_declaration id="670">
+                  <method_declaration id="673">
+                    <method_header id="707">
+                      <method_modifiers id="710">
+                        <method_modifier id="719">
+                          <TOKENS id="set720">
+                            <WS id="" startline="1" startpos="11" endline="1" endpos="12" hidden="true"> </WS>
+                            <TOKEN id="set720" startline="1" startpos="12" endline="1" endpos="18">static</TOKEN>
+                          </TOKENS>
+                        </method_modifier>
+                      </method_modifiers>
+                      <return_type id="712">
+                        <TOKENS id="string_literal722">
+                          <WS id="" startline="1" startpos="18" endline="1" endpos="19" hidden="true"> </WS>
+                          <TOKEN id="string_literal722" startline="1" startpos="19" endline="1" endpos="23">void</TOKEN>
+                        </TOKENS>
+                      </return_type>
+                      <member_name id="713">
+                        <qid id="753">
+                          <qid_start id="12">
+                            <identifier id="14">
+                              <IDENTIFIER id="set1277">
+                                <WS id="" startline="1" startpos="23" endline="1" endpos="24" hidden="true"> </WS>
+                                <TOKEN id="set1277" startline="1" startpos="24" endline="1" endpos="28">Main</TOKEN>
+                              </IDENTIFIER>
+                            </identifier>
+                          </qid_start>
+                        </qid>
+                      </member_name>
+                      <TOKENS id="char_literal715">
+                        <TOKEN id="char_literal715" startline="1" startpos="28" endline="1" endpos="29">(</TOKEN>
+                      </TOKENS>
+                      <formal_parameter_list id="716">
+                        <formal_parameter id="725">
+                          <fixed_parameter id="728">
+                            <type id="734">
+                              <non_array_type id="111">
+                                <predefined_type id="120">
+                                  <TOKENS id="set1276">
+                                    <TOKEN id="set1276" startline="1" startpos="29" endline="1" endpos="35">string</TOKEN>
+                                  </TOKENS>
+                                </predefined_type>
+                              </non_array_type>
+                              <rank_specifier id="112">
+                                <TOKENS id="char_literal135">
+                                  <TOKEN id="char_literal135" startline="1" startpos="35" endline="1" endpos="36">[</TOKEN>
+                                </TOKENS>
+                                <TOKENS id="char_literal137">
+                                  <TOKEN id="char_literal137" startline="1" startpos="36" endline="1" endpos="37">]</TOKEN>
+                                </TOKENS>
+                              </rank_specifier>
+                            </type>
+                            <identifier id="735">
+                              <IDENTIFIER id="set1277">
+                                <WS id="" startline="1" startpos="37" endline="1" endpos="38" hidden="true"> </WS>
+                                <TOKEN id="set1277" startline="1" startpos="38" endline="1" endpos="42">args</TOKEN>
+                              </IDENTIFIER>
+                            </identifier>
+                          </fixed_parameter>
+                        </formal_parameter>
+                      </formal_parameter_list>
+                      <RPAREN id="char_literal717">
+                        <TOKEN id="char_literal717" startline="1" startpos="42" endline="1" endpos="43">)</TOKEN>
+                      </RPAREN>
+                    </method_header>
+                    <method_body id="708">
+                      <block id="724">
+                        <TOKENS id="char_literal1093">
+                          <WS id="" startline="1" startpos="43" endline="1" endpos="44" hidden="true"> </WS>
+                          <TOKEN id="char_literal1093" startline="1" startpos="44" endline="1" endpos="45">{</TOKEN>
+                        </TOKENS>
+                        <TOKENS id="char_literal1095">
+                          <TOKEN id="char_literal1095" startline="1" startpos="45" endline="1" endpos="46">}</TOKEN>
+                        </TOKENS>
+                      </block>
+                    </method_body>
+                  </method_declaration>
+                </class_member_declaration>
+              </class_member_declarations>
+              <TOKENS id="char_literal669">
+                <WS id="" startline="1" startpos="46" endline="1" endpos="47" hidden="true"> </WS>
+                <TOKEN id="char_literal669" startline="1" startpos="47" endline="1" endpos="48">}</TOKEN>
+              </TOKENS>
+            </class_body>
+          </class_declaration>
+        </type_declaration>
+      </namespace_member_declaration>
+    </namespace_member_declarations>
+  </namespace_body>
+  <EOF id="EOF">
+    <TOKEN id="EOF" startline="1" startpos="48" endline="1" endpos="48"></TOKEN>
+  </EOF>
+</compilation_unit>
